@@ -13,12 +13,9 @@ class Button extends React.Component {
         }
     }
     darkLightBtn = () => {
-        console.log(this.state.isValid);
-        console.log(this.state.background);
        this.setState({isValid: !this.state.isValid});
        if(!this.state.isValid) {
         this.setState({background: this.state.background = ''});
-        console.log(this.myRef.current.style.background)
         this.myRef.current.style.backgroundColor = this.state.background;
        } else {
         this.setState({background: this.state.background = darkModeContext._currentValue});
@@ -26,7 +23,6 @@ class Button extends React.Component {
        }
     }
     render() {
-        // ref={this.myRef} instead of this we can write style={{background: this.state.background}}
         return <div ref={this.myRef} style={{height: '100vh'}}>
           <button onClick={this.darkLightBtn}> {this.state.isValid ? "Dark Mode" : "Light Mode"} </button>
           <ValidationPage />
